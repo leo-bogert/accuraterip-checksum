@@ -187,7 +187,7 @@ int main(int argc, const char** argv) {
 	SNDFILE* sndfile = sf_open(filename, SFM_READ, &sfinfo);
 
 	if(sndfile == NULL) {
-		fprintf(stderr, "sf_open failed! sf_error==%i", sf_error(NULL));
+		fprintf(stderr, "sf_open failed! sf_error==%i\n", sf_error(NULL));
 		return EXIT_FAILURE;
 	}
 
