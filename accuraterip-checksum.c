@@ -131,11 +131,6 @@ void print_syntax() {
 }
 
 int main(int argc, const char** argv) {
-	if(argc != 4 && argc != 5) {
-		print_syntax();
-		return EXIT_FAILURE;
-	}
-
 	int arg_offset;
 	bool use_v1;
 
