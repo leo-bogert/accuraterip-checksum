@@ -2,7 +2,8 @@
  ============================================================================
  Name        : accuraterip-checksum.c
  Author      : Leo Bogert (http://leo.bogert.de)
- Version     : 1.1
+ Git         : http://leo.bogert.de/accuraterip-checksum
+ Version     : See global variable "version"
  Copyright   : GPL
  Description : A C99 commandline program to compute the AccurateRip checksum of singletrack WAV files.
  	 	 	   Implemented according to http://www.hydrogenaudio.org/forums/index.php?showtopic=97603
@@ -16,6 +17,7 @@
 #include <string.h>
 #include <sndfile.h>
 
+const char *const version = "1.2";
 
 bool check_fileformat(const SF_INFO* sfinfo) {
 #ifdef DEBUG
@@ -126,8 +128,8 @@ u_int32_t compute_v2_checksum(const u_int32_t* audio_data, const size_t audio_da
 	return AC_CRCNEW;
 }
 
-void print_syntax() {
-	puts("Syntax: accuraterip-checksum [--version1 / --version2 (default)] filename track_number total_tracks");
+void print_syntax_to_stderr() {
+	fprintf(stderr, "Syntax: accuraterip-checksum [--version / --accuraterip-v1 / --accuraterip-v2 (default)] filename track_number total_tracks\n");
 }
 
 int main(int argc, const char** argv) {
@@ -135,23 +137,30 @@ int main(int argc, const char** argv) {
 	bool use_v1;
 
 	switch(argc) {
+		case 2:
+			if(strcmp(argv[1], "--version") != 0) {
+				print_syntax_to_stderr();
+				return EXIT_FAILURE;
+			}
+			printf("accuraterip-checksum version %s\n", version);
+			return EXIT_SUCCESS;
 		case 4:
 			arg_offset = 0;
 			use_v1 = false;
 			break;
 		case 5:
 			arg_offset = 1;
-			if(!strcmp(argv[1], "--version1")) {
+			if(!strcmp(argv[1], "--accuraterip-v1")) {
 				use_v1 = true;
-			} else if(!strcmp(argv[1], "--version2")) {
+			} else if(!strcmp(argv[1], "--accuraterip-v2")) {
 				use_v1 = false;
 			} else {
-				print_syntax();
+				print_syntax_to_stderr();
 				return EXIT_FAILURE;
 			}
 			break;
 		default:
-			print_syntax();
+			print_syntax_to_stderr();
 			return EXIT_FAILURE;
 	}
 
