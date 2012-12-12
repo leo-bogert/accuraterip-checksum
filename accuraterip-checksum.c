@@ -163,12 +163,12 @@ int main(int argc, const char** argv) {
 	const int total_tracks = atoi(total_tracks_string);
 
 	if(track_number < 1 || track_number > total_tracks) {
-		puts("Invalid track_number!");
+		fprintf(stderr, "Invalid track_number!\n");
 		return EXIT_FAILURE;
 	}
 
 	if(total_tracks < 1 || total_tracks > 99) {
-		puts("Invalid total_tracks!");
+		fprintf(stderr, "Invalid total_tracks!\n");
 		return EXIT_FAILURE;
 	}
 
