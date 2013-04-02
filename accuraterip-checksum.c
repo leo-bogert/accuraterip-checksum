@@ -17,7 +17,7 @@
 #include <string.h>
 #include <sndfile.h>
 
-const char *const version = "1.2";
+const char *const version = "1.3";
 
 bool check_fileformat(const SF_INFO* sfinfo) {
 #ifdef DEBUG
@@ -63,7 +63,7 @@ u_int32_t compute_v1_checksum(const u_int32_t* audio_data, const size_t audio_da
 
 	const DWORD *pAudioData = audio_data;	// this should point entire track audio data
 	int DataSize = 	audio_data_size;	// size of the data
-	int TrackNumber = TrackNumber;	// actual track number on disc, note that for the first & last track the first and last 5 sectors are skipped
+	int TrackNumber = track_number;	// actual track number on disc, note that for the first & last track the first and last 5 sectors are skipped
 	int AudioTrackCount = total_tracks;	// CD track count
 
 	//---------AccurateRip CRC checks------------
@@ -96,7 +96,7 @@ u_int32_t compute_v2_checksum(const u_int32_t* audio_data, const size_t audio_da
 
 	const DWORD *pAudioData = audio_data;	// this should point entire track audio data
 	int DataSize = 	audio_data_size;	// size of the data
-	int TrackNumber = TrackNumber;	// actual track number on disc, note that for the first & last track the first and last 5 sectors are skipped
+	int TrackNumber = track_number;	// actual track number on disc, note that for the first & last track the first and last 5 sectors are skipped
 	int AudioTrackCount = total_tracks;	// CD track count
 
 	//---------AccurateRip CRC checks------------

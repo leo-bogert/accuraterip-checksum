@@ -34,7 +34,7 @@ It should as well ask you to import the project configuration then.
 Leo Bogert (http://leo.bogert.de)
 
 # Version:
-1.2
+1.3
 
 # Donations:
 	bitcoin:14kPd2QWsri3y2irVFX6wC33vv7FqTaEBh
