@@ -59,7 +59,6 @@ u_int32_t* load_full_audiodata(SNDFILE* sndfile, const SF_INFO* sfinfo) {
 
 u_int32_t compute_v1_checksum(const u_int32_t* audio_data, const size_t audio_data_size, const int track_number, const int total_tracks) {
 #define DWORD u_int32_t
-#define SectorBytes 2352
 
 	const DWORD *pAudioData = audio_data;	// this should point entire track audio data
 	int DataSize = 	audio_data_size;	// size of the data
@@ -91,7 +90,6 @@ u_int32_t compute_v1_checksum(const u_int32_t* audio_data, const size_t audio_da
 
 u_int32_t compute_v2_checksum(const u_int32_t* audio_data, const size_t audio_data_size, const int track_number, const int total_tracks) {
 #define DWORD u_int32_t
-#define SectorBytes 2352
 #define __int64 long
 
 	const DWORD *pAudioData = audio_data;	// this should point entire track audio data
