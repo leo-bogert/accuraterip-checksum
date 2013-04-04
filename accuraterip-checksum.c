@@ -114,6 +114,8 @@ u_int32_t compute_v2_checksum(const u_int32_t* audio_data, const size_t audio_da
 	DWORD MulBy = 1;
 	for (int i = 0; i < DataDWORDSize; i++)
 	{
+		if (MulBy >= AR_CRCPosCheckFrom && MulBy <= AR_CRCPosCheckTo)
+		{
         DWORD Value = pAudioData[i];
 
         unsigned __int64 CalcCRCNEW = (unsigned __int64)Value * (unsigned __int64)MulBy;
@@ -121,7 +123,7 @@ u_int32_t compute_v2_checksum(const u_int32_t* audio_data, const size_t audio_da
         DWORD HICalcCRCNEW = (DWORD)(CalcCRCNEW / (unsigned __int64)0x100000000);
         AC_CRCNEW+=HICalcCRCNEW;
         AC_CRCNEW+=LOCalcCRCNEW;
-
+		}
         MulBy++;
 	}
 
