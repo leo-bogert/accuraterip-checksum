@@ -116,13 +116,13 @@ u_int32_t compute_v2_checksum(const u_int32_t* audio_data, const size_t audio_da
 	{
 		if (MulBy >= AR_CRCPosCheckFrom && MulBy <= AR_CRCPosCheckTo)
 		{
-        DWORD Value = pAudioData[i];
+			DWORD Value = pAudioData[i];
 
-        unsigned __int64 CalcCRCNEW = (unsigned __int64)Value * (unsigned __int64)MulBy;
-        DWORD LOCalcCRCNEW = (DWORD)(CalcCRCNEW & (unsigned __int64)0xFFFFFFFF);
-        DWORD HICalcCRCNEW = (DWORD)(CalcCRCNEW / (unsigned __int64)0x100000000);
-        AC_CRCNEW+=HICalcCRCNEW;
-        AC_CRCNEW+=LOCalcCRCNEW;
+			unsigned __int64 CalcCRCNEW = (unsigned __int64)Value * (unsigned __int64)MulBy;
+			DWORD LOCalcCRCNEW = (DWORD)(CalcCRCNEW & (unsigned __int64)0xFFFFFFFF);
+			DWORD HICalcCRCNEW = (DWORD)(CalcCRCNEW / (unsigned __int64)0x100000000);
+			AC_CRCNEW+=HICalcCRCNEW;
+			AC_CRCNEW+=LOCalcCRCNEW;
 		}
         MulBy++;
 	}
