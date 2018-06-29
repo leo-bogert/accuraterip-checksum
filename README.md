@@ -19,7 +19,10 @@ The version of accuraterip-checksum should be added to audio files which are tag
 libsndfile is used for reading the WAV files.
 Therefore, on Ubuntu 12.04, make sure you have the following packages installed:
 
-	libsndfile1 (should be installed by default)
+	libsndfile1
+
+For compiling you need:
+
 	libsndfile1-dev
 
 ## Compiling
