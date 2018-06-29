@@ -91,7 +91,6 @@ uint32_t compute_v1_checksum(const uint32_t* audio_data, const size_t audio_data
 
 uint32_t compute_v2_checksum(const uint32_t* audio_data, const size_t audio_data_size, const int track_number, const int total_tracks) {
 #define DWORD uint32_t
-#define __int64 uint64_t
 
 	const DWORD *pAudioData = audio_data;	// this should point entire track audio data
 	int DataSize = 	audio_data_size;	// size of the data
