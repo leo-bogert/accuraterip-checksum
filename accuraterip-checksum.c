@@ -4,7 +4,7 @@
  Author      : Leo Bogert (http://leo.bogert.de)
  Git         : http://leo.bogert.de/accuraterip-checksum
  Version     : See global variable "version"
- Copyright   : GPL
+ Copyright   : GPLv3
  Description : A C99 commandline program to compute the AccurateRip checksum of singletrack WAV files.
  	 	 	   Implemented according to http://www.hydrogenaudio.org/forums/index.php?showtopic=97603
  ============================================================================
