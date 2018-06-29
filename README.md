@@ -43,6 +43,8 @@ The configuration files of an Eclipse project are included.
 You can use "EGit" (Eclipse git) to import the whole repository.
 It should as well ask you to import the project configuration then.
 
+The Eclipse configuration is currently unmaintained, using GNU Make is preferred.
+
 ## Author
 Leo Bogert (http://leo.bogert.de)
 
