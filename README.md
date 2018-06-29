@@ -1,7 +1,7 @@
 # accuraterip-checksum
 
 ## Description
-A C99 commandline program to compute the AccurateRip checksum of singletrack WAV files.  
+A C99 command line program to compute the [AccurateRip](http://accuraterip.com/) checksum of full disc image WAV files, i.e. WAV files which contain all tracks of an audio CD.  
 Implemented according to [this thread on HydrogenAudio](http://www.hydrogenaudio.org/forums/index.php?showtopic=97603).
 
 ## Usage
