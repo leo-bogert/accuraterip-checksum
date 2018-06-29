@@ -19,13 +19,22 @@ You can obtain the version of accuraterip-checksum using the "--version" paramet
 The version of accuraterip-checksum should be added to audio files which are tagged using the output of accuraterip-checksum. If any severe bugs are ever found in accuraterip-checksum, this will allow you to identify files which were tagged using affected version.
 
 
-# Compiling:
+# Dependencies:
 libsndfile is used for reading the WAV files.
 Therefore, on Ubuntu 12.04, make sure you have the following packages installed:
 
 	libsndfile1 (should be installed by default)
 	libsndfile1-dev
 
+# Compiling:
+
+## Using GNU Make:
+```shell
+make clean
+make
+```
+
+## Using Eclipse:
 The configuration files of an Eclipse project are included.
 You can use "EGit" (Eclipse git) to import the whole repository.
 It should as well ask you to import the project configuration then.
