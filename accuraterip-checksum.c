@@ -18,7 +18,7 @@
 #include <stdint.h>
 #include <sndfile.h>
 
-const char *const version = "1.4";
+const char *const version = "1.5";
 
 bool check_fileformat(const SF_INFO* sfinfo) {
 #ifdef DEBUG

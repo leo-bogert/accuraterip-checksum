@@ -51,7 +51,7 @@ The Eclipse configuration is currently unmaintained, using GNU Make is preferred
 Leo Bogert (http://leo.bogert.de)
 
 ## Version
-1.4
+1.5
 
 ## Donations
 	bitcoin:14kPd2QWsri3y2irVFX6wC33vv7FqTaEBh
