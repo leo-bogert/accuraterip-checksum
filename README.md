@@ -7,11 +7,11 @@ Implemented according to [this thread on HydrogenAudio](http://www.hydrogenaudio
 ## Usage
 Calculate AccurateRip v2 checksum of track number ```TRACK``` of WAV full disc image file ```FILE```, which contains a total track count of ```TOTAL_TRACKS```:
 
-	accuraterip-checksum FILE TRACK_NUMBER TOTAL_TRACKS
+	accuraterip-checksum FILE TRACK TOTAL_TRACKS
 
 Explicitly choose AccurateRip checksum version, where ```VERSION``` is 1 or 2:
 
-	accuraterip-checksum --accuraterip-vVERSION FILE TRACK_NUMBER TOTAL_TRACKS
+	accuraterip-checksum --accuraterip-vVERSION FILE TRACK TOTAL_TRACKS
 
 Show accuraterip-checksum program version (this is **not** the AccurateRip checksum version!):
 
