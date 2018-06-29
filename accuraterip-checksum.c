@@ -15,6 +15,7 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <string.h>
+#include <stdint.h>
 #include <sndfile.h>
 
 const char *const version = "1.4";
@@ -43,8 +44,8 @@ size_t get_full_audiodata_size(const SF_INFO* sfinfo) {
 	return sfinfo->frames * sfinfo->channels * (16 / 8);
 }
 
-u_int32_t* load_full_audiodata(SNDFILE* sndfile, const SF_INFO* sfinfo) {
-	u_int32_t* data = (u_int32_t*)malloc(get_full_audiodata_size(sfinfo));
+uint32_t* load_full_audiodata(SNDFILE* sndfile, const SF_INFO* sfinfo) {
+	uint32_t* data = (uint32_t*)malloc(get_full_audiodata_size(sfinfo));
 
 	if(data == NULL)
 		return NULL;
@@ -57,8 +58,8 @@ u_int32_t* load_full_audiodata(SNDFILE* sndfile, const SF_INFO* sfinfo) {
 	return data;
 }
 
-u_int32_t compute_v1_checksum(const u_int32_t* audio_data, const size_t audio_data_size, const int track_number, const int total_tracks) {
-#define DWORD u_int32_t
+uint32_t compute_v1_checksum(const uint32_t* audio_data, const size_t audio_data_size, const int track_number, const int total_tracks) {
+#define DWORD uint32_t
 
 	const DWORD *pAudioData = audio_data;	// this should point entire track audio data
 	int DataSize = 	audio_data_size;	// size of the data
@@ -88,9 +89,9 @@ u_int32_t compute_v1_checksum(const u_int32_t* audio_data, const size_t audio_da
 	return AR_CRC;
 }
 
-u_int32_t compute_v2_checksum(const u_int32_t* audio_data, const size_t audio_data_size, const int track_number, const int total_tracks) {
-#define DWORD u_int32_t
-#define __int64 long
+uint32_t compute_v2_checksum(const uint32_t* audio_data, const size_t audio_data_size, const int track_number, const int total_tracks) {
+#define DWORD uint32_t
+#define QWORD uint64_t
 
 	const DWORD *pAudioData = audio_data;	// this should point entire track audio data
 	int DataSize = 	audio_data_size;	// size of the data
@@ -116,9 +117,9 @@ u_int32_t compute_v2_checksum(const u_int32_t* audio_data, const size_t audio_da
 		{
 			DWORD Value = pAudioData[i];
 
-			unsigned __int64 CalcCRCNEW = (unsigned __int64)Value * (unsigned __int64)MulBy;
-			DWORD LOCalcCRCNEW = (DWORD)(CalcCRCNEW & (unsigned __int64)0xFFFFFFFF);
-			DWORD HICalcCRCNEW = (DWORD)(CalcCRCNEW / (unsigned __int64)0x100000000);
+			QWORD CalcCRCNEW = (QWORD)Value * (QWORD)MulBy;
+			DWORD LOCalcCRCNEW = (DWORD)(CalcCRCNEW & (QWORD)0xFFFFFFFF);
+			DWORD HICalcCRCNEW = (DWORD)(CalcCRCNEW / (QWORD)0x100000000);
 			AC_CRCNEW+=HICalcCRCNEW;
 			AC_CRCNEW+=LOCalcCRCNEW;
 		}
@@ -206,7 +207,7 @@ int main(int argc, const char** argv) {
 		return EXIT_FAILURE;
 	}
 
-	u_int32_t* audio_data = load_full_audiodata(sndfile, &sfinfo);
+	uint32_t* audio_data = load_full_audiodata(sndfile, &sfinfo);
 	if(audio_data == NULL) {
 		fprintf(stderr, "load_full_audiodata failed!\n");
 		sf_close(sndfile);
