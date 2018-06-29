@@ -2,7 +2,7 @@
  ============================================================================
  Name        : accuraterip-checksum.c
  Author      : Leo Bogert (http://leo.bogert.de)
- Git         : http://leo.bogert.de/accuraterip-checksum
+ Git         : https://github.com/leo-bogert/accuraterip-checksum
  Version     : See global variable "version"
  Copyright   : GPLv3
  Description : A C99 commandline program to compute the AccurateRip checksum of singletrack WAV files.
