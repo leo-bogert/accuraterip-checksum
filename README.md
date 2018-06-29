@@ -4,20 +4,25 @@
 A C99 commandline program to compute the AccurateRip checksum of singletrack WAV files.  
 Implemented according to [this thread on HydrogenAudio](http://www.hydrogenaudio.org/forums/index.php?showtopic=97603).
 
-## Syntax
-	accuraterip-checksum [--version / --accuraterip-v1 / --accuraterip-v2 (default)] filename track_number total_tracks
+## Usage
+Calculate AccurateRip v2 checksum of track number ```TRACK``` of WAV full disc image file ```FILE```, which contains a total track count of ```TOTAL_TRACKS```:
 
-## Output
-By default, the V2 (AccurateRip version 2) checksum will be printed.
-You can also obtain the V1 checksum with the "--accuraterip-v1" parameter.
+	accuraterip-checksum FILE TRACK TOTAL_TRACKS
 
-You can obtain the version of accuraterip-checksum using the "--version" parameter. This is not to be confused with the AccurateRip version!
+Explicitly choose AccurateRip checksum version, where ```VERSION``` is 1 or 2:
 
-The version of accuraterip-checksum should be added to audio files which are tagged using the output of accuraterip-checksum. If any severe bugs are ever found in accuraterip-checksum, this will allow you to identify files which were tagged using affected version.
+	accuraterip-checksum --accuraterip-vVERSION FILE TRACK TOTAL_TRACKS
+
+Show accuraterip-checksum program version (this is **not** the AccurateRip checksum version!):
+
+	accuraterip-checksum --version
+
+The version of accuraterip-checksum should be added to the tags of audio files which were processed using the output of accuraterip-checksum:  
+If any severe bugs are ever found in accuraterip-checksum this will allow you to identify files which were tagged using affected version.
 
 ## Dependencies
 libsndfile is used for reading the WAV files.
-Therefore, on Ubuntu 12.04, make sure you have the following packages installed:
+Therefore, on Ubuntu, make sure you have the following packages installed:
 
 	libsndfile1
 
