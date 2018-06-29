@@ -91,7 +91,7 @@ uint32_t compute_v1_checksum(const uint32_t* audio_data, const size_t audio_data
 
 uint32_t compute_v2_checksum(const uint32_t* audio_data, const size_t audio_data_size, const int track_number, const int total_tracks) {
 #define DWORD uint32_t
-#define __int64 long
+#define __int64 uint64_t
 
 	const DWORD *pAudioData = audio_data;	// this should point entire track audio data
 	int DataSize = 	audio_data_size;	// size of the data
@@ -117,9 +117,9 @@ uint32_t compute_v2_checksum(const uint32_t* audio_data, const size_t audio_data
 		{
 			DWORD Value = pAudioData[i];
 
-			unsigned __int64 CalcCRCNEW = (unsigned __int64)Value * (unsigned __int64)MulBy;
-			DWORD LOCalcCRCNEW = (DWORD)(CalcCRCNEW & (unsigned __int64)0xFFFFFFFF);
-			DWORD HICalcCRCNEW = (DWORD)(CalcCRCNEW / (unsigned __int64)0x100000000);
+			uint64_t CalcCRCNEW = (uint64_t)Value * (uint64_t)MulBy;
+			DWORD LOCalcCRCNEW = (DWORD)(CalcCRCNEW & (uint64_t)0xFFFFFFFF);
+			DWORD HICalcCRCNEW = (DWORD)(CalcCRCNEW / (uint64_t)0x100000000);
 			AC_CRCNEW+=HICalcCRCNEW;
 			AC_CRCNEW+=LOCalcCRCNEW;
 		}
