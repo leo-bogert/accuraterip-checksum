@@ -2,9 +2,7 @@
 
 ## Description
 A C99 commandline program to compute the AccurateRip checksum of singletrack WAV files.
-Implemented according to
-
-	http://www.hydrogenaudio.org/forums/index.php?showtopic=97603
+Implemented according to [this thread on HydrogenAudio](http://www.hydrogenaudio.org/forums/index.php?showtopic=97603).
 
 ## Syntax
 	accuraterip-checksum [--version / --accuraterip-v1 / --accuraterip-v2 (default)] filename track_number total_tracks
