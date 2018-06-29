@@ -22,7 +22,7 @@ If any severe bugs are ever found in accuraterip-checksum this will allow you to
 
 ## Dependencies
 libsndfile is used for reading the WAV files.
-Therefore, on Ubuntu 12.04, make sure you have the following packages installed:
+Therefore, on Ubuntu, make sure you have the following packages installed:
 
 	libsndfile1
 
